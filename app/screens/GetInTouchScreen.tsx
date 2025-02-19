@@ -48,7 +48,26 @@ const GetInTouchScreen = ({navigation}: any) => {
   return (
     <ScreenBg>
       <SafeAreaView edges={['top']} style={styles.container}>
-        <MyHeader showBack title={'Profile'} />
+        <MyHeader
+          showBack
+          title={'Profile'}
+          rightItem={
+            <Pressable
+              onPress={() => mainStore.setShowEditProfile(true)}
+              disabled={mainStore.name.length === 0}
+              style={{
+                borderRadius: 15,
+                borderColor: '#3967FF',
+                borderWidth: 1,
+                paddingHorizontal: 12,
+                paddingVertical: 4,
+              }}>
+              <Text style={{color: '#3967FF', fontSize: 17, fontWeight: 600}}>
+                Edit
+              </Text>
+            </Pressable>
+          }
+        />
 
         {mainStore.showEditProfile ? (
           <View style={styles.infoContainer}>
