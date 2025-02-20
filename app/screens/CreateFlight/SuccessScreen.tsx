@@ -11,6 +11,7 @@ const SuccessScreen = ({navigation}: any) => {
   const {loadProducts} = useStore().productStore;
   function handleConfirm() {
     loadProducts();
+    navigation.popToTop();
     navigation.navigate('MenuTab');
   }
 
